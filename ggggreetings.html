@@ -99,7 +99,7 @@
     <script>
         function date() {
             var today = new Date();
-            var options = { weekday: 'long', month: 'long', day: 'numeric' };
+            var options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
             var dateStr = today.toLocaleDateString('en-US', options).replace(",", " |");
             document.getElementById('date').innerHTML = dateStr;
         }
@@ -145,4 +145,3 @@
     </script>
 </body>
 </html>
-
