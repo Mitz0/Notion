@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Signika&display=swap" rel="stylesheet">
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greeting2</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        /* CSS START */
+        .full-table {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+
+        .table-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .card {
+            padding: 10px 25px 10px 25px;
+            border-radius: 10px;
+            background: #6e7781;
+            width: 85vw;
+            color: #fff;
+            display: inline-block;
+        }
+
+        .card:hover {
+            margin-top: 2px;
+            box-shadow: none;
+        }
+
+        .clock {
+            display: inline;
+            font-family: 'Signika', sans-serif;
+            font-size: 2em;
+        }
+
+        .time {
+            display: inline;
+            min-width: 37px;
+        }
+
+        .colon {
+            font-size: 1.1em;
+            display: inline-block;
+        }
+
+        .date {
+            display: inline;
+            min-width: 162px;
+            font-family: 'Signika', sans-serif;
+            font-size: 2em;
+            padding-right: 30px;
+        }
+
+        .greet {
+            display: inline;
+            font-family: 'Gamja Flower', cursive;
+            font-size: 2rem;
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="full-table">
+        <div class="table-cell">
+            <div class="card">
+                <div class="greet" id="greet"></div>
+                <div class="date" id="date"></div>
+                <div class="clock">
+                    <div class="time" id="hour"></div>
+                    <div class="colon">:</div>
+                    <div class="time" id="min"></div>
+                    <div class="colon">:</div>
+                    <div class="time" id="sec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function date() {
+            var today = new Date();
+            var options = { weekday: 'long', month: 'long', day: 'numeric' };
+            var dateStr = today.toLocaleDateString('en-US', options).replace(",", " |");
+            document.getElementById('date').innerHTML = dateStr;
+        }
+
+        function clock() {
+            var today = new Date();
+            var hour = zeros(today.getHours());
+            var minutes = zeros(today.getMinutes());
+            var seconds = zeros(today.getSeconds());
+            var greet = getGreeting(today.getHours());
+            document.getElementById('greet').innerHTML = greet;
+            document.getElementById('hour').innerHTML = hour;
+            document.getElementById('min').innerHTML = minutes;
+            document.getElementById('sec').innerHTML = seconds;
+        }
+
+        function getGreeting(hour) {
+            var greet = '';
+            if (hour >= 0 && hour < 12) {
+                greet = 'Good Morning';
+            } else if (hour >= 12 && hour < 18) {
+                greet = 'Good Afternoon';
+            } else {
+                greet = 'Good Evening';
+            }
+            return greet;
+        }
+
+        function zeros(num) {
+            if (num < 10) {
+                num = '0' + num;
+            }
+            return num;
+        }
+
+        function dateTime() {
+            date();
+            clock();
+            setTimeout(dateTime, 500);
+        }
+
+        dateTime();
+    </script>
+</body>
+</html>
+
