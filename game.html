@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to your game collection</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS START */
+        .full-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            padding: 10px 25px;
+            border-radius: 10px;
+            background: #6e7781;
+            color: #fff;
+            display: inline-block;
+            font-family: 'Signika', sans-serif;
+            font-size: 3rem;
+            opacity: 0; /* Ocultar el elemento */
+            animation: fadeIn 1s ease-in-out forwards; /* Animación fade in */
+        }
+
+        .fadeOut {
+            animation: fadeOut 1s ease-in-out forwards; /* Animación fade out */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full-table">
+        <div class="card">
+            <span class="hidden">Welcome to your game collection</span>
+        </div>
+    </div>
+
+    <script>
+        const card = document.querySelector('.card');
+        const hiddenText = document.querySelector('.hidden');
+        const texts = [
+            "Welcome to your game collection",
+            "Ready to play?"
+        ];
+        let currentTextIndex = 0;
+
+        setTimeout(() => {
+            card.classList.add('fadeOut');
+            setTimeout(() => {
+                card.textContent = texts[currentTextIndex];
+                card.classList.remove('fadeOut');
+                card.classList.add('fadeIn');
+            }, 1000);
+        }, 10000);
+
+        setInterval(() => {
+            card.classList.add('fadeOut');
+            setTimeout(() => {
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                card.textContent = texts[currentTextIndex];
+                card.classList.remove('fadeOut');
+                card.classList.add('fadeIn');
+            }, 1000);
+        }, 10000);
+    </script>
+</body>
+</html>
