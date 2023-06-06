@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to your Watchlist</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS START */
+        .full-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            padding: 10px 25px;
+            border-radius: 10px;
+            background: #8FC6A6; /* Cambiar el color del cuadro a #8FC6A6 */
+            color: #fff;
+            display: inline-block;
+            font-family: 'Signika', sans-serif;
+            font-size: 3rem;
+            opacity: 0; /* Ocultar el elemento */
+            animation: fadeIn 1s ease-in-out forwards; /* Animación fade in más rápida */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            animation: fadeInText 1s ease-in-out forwards; /* Animación de aparición de las letras */
+            animation-delay: 0.1s; /* Retraso de 0.1s para cada letra */
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(30px); /* Desplazamiento vertical */
+                filter: blur(10px); /* Efecto de desenfoque */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full-table">
+        <div class="card">
+            <span class="hidden">W</span>
+            <span class="hidden">e</span>
+            <span class="hidden">l</span>
+            <span class="hidden">c</span>
+            <span class="hidden">o</span>
+            <span class="hidden">m</span>
+            <span class="hidden">e</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">t</span>
+            <span class="hidden">o</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">y</span>
+            <span class="hidden">o</span>
+            <span class="hidden">u</span>
+            <span class="hidden">r</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">W</span>
+            <span class="hidden">a</span>
+            <span class="hidden">t</span>
+            <span class="hidden">c</span>
+            <span class="hidden">h</span>
+            <span class="hidden">l</span>
+            <span class="hidden">i</span>
+            <span class="hidden">s</span>
+            <span class="hidden">t</span>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.opacity = 1;
+        }, 2000);
+    </script>
+</body>
+</html>
