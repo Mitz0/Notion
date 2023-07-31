@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Cooking Center</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: transparent;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS START */
+        .full-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            padding: 15px 30px;
+            border-radius: 10px;
+            background: #fce4a7;
+            color: #4e342e;
+            display: inline-block;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .fadeInText {
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full-table">
+        <div class="card">
+            <span class="hidden">🍔</span>
+            <span class="hidden">🍕</span>
+            <span class="hidden">🥧</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">C</span>
+            <span class="hidden">o</span>
+            <span class="hidden">o</span>
+            <span class="hidden">k</span>
+            <span class="hidden">i</span>
+            <span class="hidden">n</span>
+            <span class="hidden">g</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">C</span>
+            <span class="hidden">e</span>
+            <span class="hidden">n</span>
+            <span class="hidden">t</span>
+            <span class="hidden">e</span>
+            <span class="hidden">r</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">🍪</span>
+            <span class="hidden">🍩</span>
+            <span class="hidden">🥞</span>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.opacity = 1;
+            const hiddenText = document.querySelectorAll('.hidden');
+            hiddenText.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInText');
+                }, index * 100); /* Intervalo de 100ms para la aparición de las letras */
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
