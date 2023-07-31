@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Office</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS START */
+        .full-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            padding: 10px 25px;
+            border-radius: 10px;
+            background: #f0f0f0;
+            color: #000;
+            display: inline-block;
+            font-family: 'Special Elite', cursive;
+            font-size: 3rem;
+            border: 2px solid #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .fadeInText {
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full-table">
+        <div class="card">
+            <span class="hidden">𝄞</span>
+            <span class="hidden">♩</span>
+            <span class="hidden">♪</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">W</span>
+            <span class="hidden">e</span>
+            <span class="hidden">l</span>
+            <span class="hidden">c</span>
+            <span class="hidden">o</span>
+            <span class="hidden">m</span>
+            <span class="hidden">e</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">t</span>
+            <span class="hidden">o</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">y</span>
+            <span class="hidden">o</span>
+            <span class="hidden">u</span>
+            <span class="hidden">r</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">M</span>
+            <span class="hidden">u</span>
+            <span class="hidden">s</span>
+            <span class="hidden">i</span>
+            <span class="hidden">c</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">H</span>
+            <span class="hidden">u</span>
+            <span class="hidden">b</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">♪</span>
+            <span class="hidden">♩</span>
+            <span class="hidden">♫</span>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.opacity = 1;
+            const hiddenText = document.querySelectorAll('.hidden');
+            hiddenText.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInText');
+                }, index * 100); /* Intervalo de 100ms para la aparición de las letras */
+            });
+        }, 2000);
+    </script>
+</body>
+</html>
