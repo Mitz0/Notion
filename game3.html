@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to your Game Collection</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: transparent;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS START */
+        .card {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ebd19b;
+            color: #FFF;
+            display: inline-block;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            text-shadow: 3px 3px #000;
+            opacity: 0; /* Ocultar el elemento */
+            animation: fadeIn 1s ease-in-out forwards; /* Animación fade in */
+        }
+
+        .fadeOut {
+            animation: fadeOut 1s ease-in-out forwards; /* Animación fade out */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="hidden">🎮🎧📺 Game Collection 🕹️👾🖥️</span>
+    </div>
+
+    <script>
+        const card = document.querySelector('.card');
+        const hiddenText = document.querySelector('.hidden');
+        const texts = [
+            "🎮🎧📺 Game Collection 🕹️👾🖥️",
+            "⭐ Ready to Play? ⭐"
+        ];
+        let currentTextIndex = 0;
+
+        setTimeout(() => {
+            card.classList.add('fadeOut');
+            setTimeout(() => {
+                card.innerHTML = texts[currentTextIndex];
+                card.classList.remove('fadeOut');
+                card.classList.add('fadeIn');
+            }, 1000);
+        }, 10000);
+
+        setInterval(() => {
+            card.classList.add('fadeOut');
+            setTimeout(() => {
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                card.innerHTML = texts[currentTextIndex];
+                card.classList.remove('fadeOut');
+                card.classList.add('fadeIn');
+            }, 1000);
+        }, 10000);
+    </script>
+</body>
+</html>
