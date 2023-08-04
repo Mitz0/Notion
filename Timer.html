@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Timer</title>
+
+  <style>
+    body {
+      background-color: #f7e7e6;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .section {
+      background-color: #f7e7e6;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #display {
+      font-size: 3rem;
+      color: #ff7e8a;
+      margin-bottom: 10px;
+    }
+
+    .section input {
+      font-size: 1rem;
+      color: #2D2D32;
+      text-align: center;
+      border: 1px solid #f0d1d0;
+      border-radius: 5px;
+      background-color: #f0d1d0;
+      width: 50px;
+      padding: 5px 1px;
+      margin-right: 4px;
+      display: inline-block;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      margin-right: 8px;
+      padding: 8px 16px;
+      background-color: #ff7e8a;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      transition: 0.1s;
+    }
+
+    .buttons button:last-child {
+      margin-right: 0;
+    }
+
+    .buttons button:nth-child(1) {
+      background-color: #2f9c95;
+    }
+
+    .buttons button:active {
+      transform: scale(0.95);
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="section">
+    <div id="display">0:00</div>
+  
+    <div class="buttons">
+      <input type="text" id="input" name="input" placeholder="min">
+      <input type="text" id="input2" name="input2" placeholder="sec">
+      <button onclick="start()">▶ Start</button>
+      <button onclick="cancel()">∎ Cancel</button>
+    </div>
+  </section>
+
+  <script>
+    // ... (tu código JavaScript se mantiene igual)
+  </script>
+</body>
+</html>
