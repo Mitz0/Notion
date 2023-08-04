@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Timer</title>
+
+    <style>
+        body {
+            background-color: #ffeec2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        #display {
+            font-size: 3rem;
+            color: #ffd975;
+            margin-bottom: 10px;
+        }
+
+        .inputs {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .inputs input {
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            border: none;
+            background-color: #f7f7f7;
+            border-bottom: 2px solid #ffd975;
+            margin-right: 10px;
+            padding: 5px 10px;
+            width: 60px;
+        }
+
+        .inputs input:focus {
+            outline: none;
+        }
+
+        .buttons {
+            display: flex;
+        }
+
+        .buttons button {
+            font-size: 20px;
+            color: #fff;
+            background-color: #ffd975;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:last-child {
+            margin-right: 0;
+        }
+
+        .buttons button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <div id="display">00:00</div>
+
+        <div class="inputs">
+            <input type="text" id="input" placeholder="mm">
+            <input type="text" id="input2" placeholder="ss">
+        </div>
+
+        <div class="buttons">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="cancelTimer()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let timer;
+        let secondsRemaining = 0;
+        let isRunning = false;
+
+        function formatTime(timeInSeconds) {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = timeInSeconds % 60;
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const formattedSeconds = seconds.toString().padStart(2, '0');
+            return `${formattedMinutes}:${formattedSeconds}`;
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                const minutesInput = parseInt(document.getElementById('input').value);
+                const secondsInput = parseInt(document.getElementById('input2').value);
+                let totalSeconds = 0;
+
+                if (!isNaN(minutesInput) && minutesInput >= 0) {
+                    totalSeconds += minutesInput * 60;
+                }
+
+                if (!isNaN(secondsInput) && secondsInput >= 0) {
+                    totalSeconds += secondsInput;
+                }
+
+                if (totalSeconds > 0) {
+                    secondsRemaining = totalSeconds;
+                    isRunning = true;
+                    updateDisplay();
+
+                    timer = setInterval(() => {
+                        if (secondsRemaining > 0) {
+                            secondsRemaining--;
+                            updateDisplay();
+                        } else {
+                            clearInterval(timer);
+                            isRunning = false;
+                            updateDisplay();
+                        }
+                    }, 1000);
+                }
+            } else {
+                clearInterval(timer);
+                isRunning = false;
+                startTimer(); // Reinicia el temporizador con los nuevos valores.
+            }
+        }
+
+        function cancelTimer() {
+            if (isRunning) {
+                clearInterval(timer);
+                secondsRemaining = 0;
+                isRunning = false;
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+            const display = document.getElementById('display');
+            display.innerText = formatTime(secondsRemaining);
+        }
+    </script>
+</body>
+</html>
