@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Timer</title>
+
+  <style>
+    body {
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .timer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fdfdfd;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    #display {
+      font-size: 3rem;
+      color: #ff6b6b;
+      margin-bottom: 10px;
+    }
+
+    .inputs {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .inputs input {
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      border: none;
+      background-color: #f7f7f7;
+      border-bottom: 2px solid #ff6b6b;
+      margin-right: 10px;
+      padding: 5px 10px;
+      width: 40px;
+    }
+
+    .inputs input:focus {
+      outline: none;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .buttons button {
+      font-size: 20px;
+      color: #fff;
+      background-color: #ff6b6b;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons button:last-child {
+      margin-right: 0;
+    }
+
+    .buttons button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="timer-container">
+    <div id="display">0:00</div>
+
+    <div class="inputs">
+      <input type="text" id="input" name="input" placeholder="mm">
+      <input type="text" id="input2" name="input2" placeholder="ss">
+    </div>
+
+    <div class="buttons">
+      <button onclick="start()">Start</button>
+      <button onclick="cancel()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+  
+ 
+  function beep() {
+    var snd = new Audio("bell.mp3");  
+    snd.play();
+}
+  var timer;
+
+
+function start(){
+  var input = document.getElementById("input").value;
+  var input2 = document.getElementById("input2").value;
+
+
+minute = parseInt(input)
+seconds1 = parseInt(input2)
+if( isNaN(seconds1)){
+  seconds1 = 0
+}
+if( isNaN(minute)){
+  minute = 0
+}
+seconds = minute*60+seconds1
+
+if(seconds==0){
+ 
+  return;
+}
+
+var textSec = "00"
+textSec = seconds1
+
+var display = document.getElementById("display");
+display.innerHTML = minute + ':' + textSec
+    var statSec = seconds1
+    timer = setInterval(function(){
+        seconds--;
+
+        if(statSec != 0)
+            statSec--
+        else
+            statSec = 59
+
+        if(statSec < 10)
+            textSec = '0' + statSec
+        else 
+            textSec = statSec
+
+        display.innerHTML = Math.floor(seconds/60) + ':' + textSec
+
+        if(seconds == 0){
+          console.log('d')
+          beep();
+        clearInterval(timer)
+        }
+                
+    }, 1000)
+
+}
+
+
+function cancel(){
+    clearInterval(timer)
+    display.innerHTML ='00:00'
+    seconds = minute * 60
+}
+
+
+
+</script>
+
+
+</body>
+</html>
