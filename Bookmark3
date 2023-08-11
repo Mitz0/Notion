@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to your Social Fitness Journey</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: transparent;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS START */
+        .card {
+            padding: 15px 30px;
+            border-radius: 10px;
+            background: #ebebeb; /* Facebook Blue */
+            color: #fff;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: #878787; /* Lighter Pink */
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .fadeInText {
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.notion.so/B-o-o-k-m-a-r-k-L-i-b-r-a-r-y-9bc7a461f2ef48bcbb0a27ec08153334">
+        <div class="card">
+            <span class="hidden"><img src="https://i.imgur.com/c6UnBEJ.png" alt="YouTube Logo" width="45"></span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">H</span>
+            <span class="hidden">o</span>
+            <span class="hidden">m</span>
+            <span class="hidden">e</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden"><img src="https://i.imgur.com/CVtzwjq.png" alt="Instagram Logo" width="45"></span>
+        </div>
+    </a>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.opacity = 1;
+            const hiddenText = document.querySelectorAll('.hidden');
+            hiddenText.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInText');
+                }, index * 100);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
