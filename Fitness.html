@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to your Fitness Journey</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #transparent;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS START */
+        .card {
+            padding: 15px 30px;
+            border-radius: 10px;
+            background: #fe6d73;
+            color: #fff;
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .fadeInText {
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="hidden">💛</span>
+        <span class="hidden">🤺</span>
+        <span class="hidden">🏅</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">W</span>
+        <span class="hidden">e</span>
+        <span class="hidden">l</span>
+        <span class="hidden">c</span>
+        <span class="hidden">o</span>
+        <span class="hidden">m</span>
+        <span class="hidden">e</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">t</span>
+        <span class="hidden">o</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">y</span>
+        <span class="hidden">o</span>
+        <span class="hidden">u</span>
+        <span class="hidden">r</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">F</span>
+        <span class="hidden">i</span>
+        <span class="hidden">t</span>
+        <span class="hidden">n</span>
+        <span class="hidden">e</span>
+        <span class="hidden">s</span>
+        <span class="hidden">s</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">J</span>
+        <span class="hidden">o</span>
+        <span class="hidden">u</span>
+        <span class="hidden">r</span>
+        <span class="hidden">n</span>
+        <span class="hidden">e</span>
+        <span class="hidden">y</span>
+        <span class="hidden">&nbsp;</span>
+        <span class="hidden">💪</span>
+        <span class="hidden">🏃</span>
+        <span class="hidden">🍓</span>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.card').style.opacity = 1;
+            const hiddenText = document.querySelectorAll('.hidden');
+            hiddenText.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInText');
+                }, index * 100);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
