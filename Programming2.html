@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Matrix</title>
+
+    <style>
+        /* CSS RESETS */
+        body {
+            background-color: #000;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS START */
+        .container {
+            background-color: #000;
+            border-radius: 10px;
+                border: 6px solid #00ff00; /* Neon Green */
+            padding: 15px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5); /* Neon Green Shadow */
+        }
+
+        .card {
+            color: #00ff00; /* Neon Green */
+            font-family: 'Press Start 2P', monospace;
+            font-size: 2.5rem;
+            text-shadow: 0px 0px 5px #00ff00; /* Neon Green */
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .fadeInText {
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <span class="hidden">P</span>
+            <span class="hidden">r</span>
+            <span class="hidden">o</span>
+            <span class="hidden">g</span>
+            <span class="hidden">r</span>
+            <span class="hidden">a</span>
+            <span class="hidden">m</span>
+            <span class="hidden">m</span>
+            <span class="hidden">i</span>
+            <span class="hidden">n</span>
+            <span class="hidden">g</span>
+            <span class="hidden">&nbsp;</span>
+            <span class="hidden">H</span>
+            <span class="hidden">u</span>
+            <span class="hidden">b</span>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.container').style.opacity = 1;
+            const hiddenText = document.querySelectorAll('.hidden');
+            hiddenText.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('fadeInText');
+                }, index * 100);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
