@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Animation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #transparent;
+        }
+
+        .science {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: transparent;
+            background: linear-gradient(45deg, #82c9e0, #c28aff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: science-animation 3s linear infinite;
+        }
+
+        @keyframes science-animation {
+            0%, 100% {
+                text-shadow: none;
+            }
+            25% {
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            }
+            50%, 75% {
+                text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="science">
+        S c i e n c e
+    </div>
+</body>
+</html>
